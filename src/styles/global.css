@@ -214,8 +214,8 @@ ul {
 }
 
 .loader__spider {
-  width: 0.7em;
-  height: 0.7em;
+  width: 0.95em;
+  height: 0.95em;
   color: var(--silver);
 }
 
@@ -597,9 +597,9 @@ html:not(.is-ready) .hero__bigspider svg {
 
 .hero__spider {
   flex: none;
-  width: 0.62em;
-  height: 0.62em;
-  color: var(--silver);
+  width: 0.85em;
+  height: 0.85em;
+  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.18));
 }
 
 .hero__brand {

@@ -10,6 +10,8 @@
 export const site = {
   name: { latin: 'PAUK', cyrillic: 'ПАУК' },
   handle: '@paukkh',
+  /** Подпись под именем — всегда по-английски, на всех языках */
+  brandLine: 'Personal brand',
   links: {
     telegram: 'https://t.me/paukkh',
     instagram: 'https://www.instagram.com/paukkh?stkn=Zm5seWd5MmdtanZs',

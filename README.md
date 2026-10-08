@@ -21,7 +21,8 @@ npm run preview  # просмотр собранной версии
 | Порядок карточек соцсетей | `socialOrder` в `src/config/site.ts` |
 | Все тексты на трёх языках, title/description | `src/i18n/translations.ts` |
 | Цвета, шрифты, радиусы | `src/styles/theme.css` |
-| Фото | положить `src/assets/avatar.jpg` (или `.png` / `.webp`) и пересобрать. Нет файла — показывается placeholder с пауком |
+| Фото | квадрат **1000×1000 px** (минимум 800×800), JPG/WebP до ~300 КБ, лицо по центру — фото обрезается в круг. Положить как `src/assets/avatar.jpg` и пересобрать. Нет файла — показывается паук |
+| Паук (логотип, загрузка, favicon) | форма в `src/components/spiderShape.ts`, затем `node tools/build-spider.mjs` |
 | Favicon / OG-картинка | `public/favicon.svg`, `public/og-image.png`, `public/apple-touch-icon.png` |
 
 Язык можно задать ссылкой: `?lang=ru`, `?lang=en`, `?lang=uk`. Выбор сохраняется в localStorage.

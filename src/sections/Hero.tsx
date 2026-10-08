@@ -1,9 +1,7 @@
 import { ArrowDown, HeartHandshake } from 'lucide-react';
 import { BigSpider } from '../components/BigSpider';
 import { TelegramIcon } from '../components/BrandIcons';
-import { CornerWebs } from '../components/CornerWeb';
 import { ExternalLink } from '../components/ExternalLink';
-import { SpiderMark } from '../components/SpiderMark';
 import { site } from '../config/site';
 import { useI18n } from '../i18n/LanguageContext';
 
@@ -12,18 +10,15 @@ export function Hero() {
 
   return (
     <section id="home" className="hero">
-      <CornerWebs className="hero__webs" />
       <div className="hero__bigspider" aria-hidden="true">
         <BigSpider />
       </div>
       <div className="container hero__content">
         <h1 className="hero__title load-in">
-          <SpiderMark className="hero__spider" size={44} />
           <span className="hero__name">{t.hero.name}</span>
-          <SpiderMark className="hero__spider" size={44} />
         </h1>
         <p className="hero__brand load-in" style={{ animationDelay: '120ms' }}>
-          {t.hero.eyebrow}
+          {site.brandLine}
         </p>
         <p className="hero__tagline load-in" style={{ animationDelay: '240ms' }}>
           {t.hero.tagline}

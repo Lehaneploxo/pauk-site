@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { site } from '../config/site';
 import { useI18n } from '../i18n/LanguageContext';
 import { CornerWeb } from './CornerWeb';
 import { Smoke } from './Smoke';
@@ -45,7 +46,7 @@ export function Loader() {
         </p>
         <span className="loader__line" />
       </div>
-      <p className="loader__brand">{t.hero.eyebrow}</p>
+      <p className="loader__brand">{site.brandLine}</p>
     </div>
   );
 }

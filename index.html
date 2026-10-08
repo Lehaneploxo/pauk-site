@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="uk" class="is-loading">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>PAUK — офіційний сайт</title>
+    <meta
+      name="description"
+      content="Персональна сторінка Паука: проєкти, творчість, Telegram, Instagram, TikTok і підтримка проєкту."
+    />
+    <meta name="theme-color" content="#000000" />
+    <meta name="color-scheme" content="dark" />
+
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="./apple-touch-icon.png" />
+
+    <!-- Open Graph / соцсети -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="PAUK" />
+    <meta property="og:title" content="PAUK — офіційний сайт" />
+    <meta
+      property="og:description"
+      content="Персональна сторінка Паука: проєкти, творчість, Telegram, Instagram, TikTok і підтримка проєкту."
+    />
+    <meta property="og:locale" content="uk_UA" />
+    <meta property="og:locale:alternate" content="ru_RU" />
+    <meta property="og:locale:alternate" content="en_US" />
+    <meta property="og:image" content="https://lehaneploxo.github.io/pauk-site/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="PAUK — офіційний сайт" />
+    <meta
+      name="twitter:description"
+      content="Персональна сторінка Паука: проєкти, творчість, Telegram, Instagram, TikTok і підтримка проєкту."
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Montserrat:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "PAUK",
+        "alternateName": ["ПАУК", "paukkh"],
+        "sameAs": [
+          "https://t.me/paukkh",
+          "https://www.instagram.com/paukkh",
+          "https://www.tiktok.com/@paukkh"
+        ]
+      }
+    </script>
+    <!-- Критичные стили прелоадера: экран загрузки виден сразу, ещё до JS -->
+    <style>
+      html, body { margin: 0; background: #000; }
+      .loader { position: fixed; inset: 0; z-index: 100; background: #000; display: flex; align-items: center; justify-content: center; overflow: hidden; color: #f2f2f4; }
+      .loader__center { display: flex; flex-direction: column; align-items: center; }
+      .loader__title { display: flex; align-items: center; gap: .45em; margin: 0; font: 600 clamp(30px, 9vw, 64px)/1 Montserrat, system-ui, sans-serif; letter-spacing: .14em; }
+      .loader__spider { width: .7em; height: .7em; color: #c9c9cf; }
+      .loader__brand { position: absolute; left: 0; right: 0; bottom: 22%; margin: 0; text-align: center; font: 500 12px/1 Montserrat, system-ui, sans-serif; letter-spacing: .5em; text-transform: uppercase; color: #8d8d95; }
+    </style>
+  </head>
+  <body>
+    <div id="root">
+      <div class="loader" aria-hidden="true">
+        <div class="loader__center"><p class="loader__title"><svg class="loader__spider" width="40" height="40" viewBox="0 0 64 64" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M27 27 L18 15 L10 19"/><path d="M37 27 L46 15 L54 19"/><path d="M26 31 L13 27 L6 33"/><path d="M38 31 L51 27 L58 33"/><path d="M26 35 L14 41 L10 51"/><path d="M38 35 L50 41 L54 51"/><path d="M28 40 L21 49 L21 59"/><path d="M36 40 L43 49 L43 59"/></g><ellipse cx="32" cy="25.5" rx="4.6" ry="4.2" fill="currentColor"/><ellipse cx="32" cy="37" rx="6.6" ry="8.8" fill="currentColor"/></svg><span id="pre-name">ПАУК</span><svg class="loader__spider" width="40" height="40" viewBox="0 0 64 64" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M27 27 L18 15 L10 19"/><path d="M37 27 L46 15 L54 19"/><path d="M26 31 L13 27 L6 33"/><path d="M38 31 L51 27 L58 33"/><path d="M26 35 L14 41 L10 51"/><path d="M38 35 L50 41 L54 51"/><path d="M28 40 L21 49 L21 59"/><path d="M36 40 L43 49 L43 59"/></g><ellipse cx="32" cy="25.5" rx="4.6" ry="4.2" fill="currentColor"/><ellipse cx="32" cy="37" rx="6.6" ry="8.8" fill="currentColor"/></svg></p></div>
+        <p class="loader__brand" id="pre-brand">Персональний бренд</p>
+      </div>
+    </div>
+    <script>
+      // Прелоадер сразу на выбранном языке
+      try {
+        var l = new URLSearchParams(location.search).get('lang') || localStorage.getItem('pauk-lang');
+        if (l === 'en') { document.getElementById('pre-name').textContent = 'PAUK'; document.getElementById('pre-brand').textContent = 'Personal brand'; }
+        if (l === 'ru') document.getElementById('pre-brand').textContent = 'Персональный бренд';
+      } catch (e) {}
+    </script>
+    <noscript><style>.loader { display: none !important; }</style></noscript>
+    <noscript>PAUK — Telegram: https://t.me/paukkh · Instagram: https://www.instagram.com/paukkh</noscript>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

@@ -12,6 +12,8 @@ export const site = {
   handle: '@paukkh',
   /** Подпись под именем — всегда по-английски, на всех языках */
   brandLine: 'Personal brand',
+  /** Фото первого экрана: public/hero.webp (вертикальное, 1080×1920 или похожее) */
+  heroPhoto: { src: `${import.meta.env.BASE_URL}hero.webp`, width: 941, height: 1672 },
   links: {
     telegram: 'https://t.me/paukkh',
     instagram: 'https://www.instagram.com/paukkh?stkn=Zm5seWd5MmdtanZs',

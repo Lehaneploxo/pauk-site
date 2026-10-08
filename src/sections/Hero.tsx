@@ -1,5 +1,4 @@
 import { ArrowDown, HeartHandshake } from 'lucide-react';
-import { BigSpider } from '../components/BigSpider';
 import { TelegramIcon } from '../components/BrandIcons';
 import { ExternalLink } from '../components/ExternalLink';
 import { site } from '../config/site';
@@ -10,9 +9,18 @@ export function Hero() {
 
   return (
     <section id="home" className="hero">
-      <div className="hero__bigspider" aria-hidden="true">
-        <BigSpider />
+      <div className="hero__media">
+        <img
+          className="hero__photo"
+          src={site.heroPhoto.src}
+          width={site.heroPhoto.width}
+          height={site.heroPhoto.height}
+          alt={t.hero.photoAlt}
+          fetchPriority="high"
+        />
+        <div className="hero__scrim" aria-hidden="true" />
       </div>
+
       <div className="container hero__content">
         <h1 className="hero__title load-in">
           <span className="hero__name">{t.hero.name}</span>
@@ -23,10 +31,7 @@ export function Hero() {
         <p className="hero__tagline load-in" style={{ animationDelay: '240ms' }}>
           {t.hero.tagline}
         </p>
-        <p className="hero__desc load-in" style={{ animationDelay: '320ms' }}>
-          {t.hero.description}
-        </p>
-        <div className="hero__cta load-in" style={{ animationDelay: '400ms' }}>
+        <div className="hero__cta load-in" style={{ animationDelay: '360ms' }}>
           <ExternalLink className="btn btn--primary" href={site.links.telegram}>
             <TelegramIcon size={18} />
             {t.hero.ctaPrimary}

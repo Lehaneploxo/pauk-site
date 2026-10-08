@@ -16,12 +16,11 @@ const uk = {
   hero: {
     name: 'ПАУК',
     tagline: 'Стримлю. Знімаю. Не зупиняюсь.',
-    description:
-      'Стример і блогер. Ефіри, відео та живе спілкування — усе, що я роблю, і всі місця, де мене знайти.',
     ctaPrimary: 'Написати в Telegram',
     ctaSecondary: 'Підтримати',
     scroll: 'Гортай',
     avatarAlt: 'Фото Паука',
+    photoAlt: 'Паук — стример і блогер',
   },
   about: {
     kicker: '01 — Про мене',
@@ -75,12 +74,11 @@ const ru: Dict = {
   hero: {
     name: 'ПАУК',
     tagline: 'Стримлю. Снимаю. Не останавливаюсь.',
-    description:
-      'Стример и блогер. Эфиры, видео и живое общение — всё, что я делаю, и все места, где меня найти.',
     ctaPrimary: 'Написать в Telegram',
     ctaSecondary: 'Поддержать',
     scroll: 'Листай',
     avatarAlt: 'Фото Паука',
+    photoAlt: 'Паук — стример и блогер',
   },
   about: {
     kicker: '01 — Обо мне',
@@ -132,12 +130,11 @@ const en: Dict = {
   hero: {
     name: 'PAUK',
     tagline: 'Stream. Create. Never stop.',
-    description:
-      'Streamer and content creator. Live streams, videos and real talk — everything I do and every place to find me.',
     ctaPrimary: 'Message on Telegram',
     ctaSecondary: 'Support',
     scroll: 'Scroll',
     avatarAlt: 'Photo of PAUK',
+    photoAlt: 'PAUK — streamer and content creator',
   },
   about: {
     kicker: '01 — About',

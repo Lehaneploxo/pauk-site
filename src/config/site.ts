@@ -24,4 +24,4 @@ export const site = {
 export type LinkKey = keyof typeof site.links;
 
 /** Порядок карточек в блоке «Найти меня» и ссылок в футере */
-export const socialOrder: LinkKey[] = ['telegram', 'instagram', 'tiktok', 'support'];
+export const socialOrder: LinkKey[] = ['instagram', 'support', 'telegram', 'tiktok'];

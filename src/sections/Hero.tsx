@@ -2,21 +2,34 @@ import { ArrowDown, HeartHandshake } from 'lucide-react';
 import { TelegramIcon } from '../components/BrandIcons';
 import { ExternalLink } from '../components/ExternalLink';
 import { site } from '../config/site';
+import { useHeroVideo } from '../hooks/useHeroVideo';
 import { useI18n } from '../i18n/LanguageContext';
 
 export function Hero() {
   const { t } = useI18n();
+  const video = useHeroVideo(site.heroVideo);
 
   return (
     <section id="home" className="hero">
       <div className="hero__media">
         <img
-          className="hero__photo"
+          className="hero__photo hero__frame"
           src={site.heroPhoto.src}
           width={site.heroPhoto.width}
           height={site.heroPhoto.height}
           alt={t.hero.photoAlt}
           fetchPriority="high"
+        />
+        <video
+          ref={video.ref}
+          className={`hero__video hero__frame${video.playing ? ' is-playing' : ''}`}
+          muted
+          loop
+          playsInline
+          preload="none"
+          disablePictureInPicture
+          aria-hidden="true"
+          tabIndex={-1}
         />
         <div className="hero__scrim" aria-hidden="true" />
       </div>

@@ -524,12 +524,27 @@ ul {
   z-index: 0;
 }
 
-.hero__photo {
+.hero__frame {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: 50% 22%;
+}
+
+.hero__photo {
   opacity: 0;
+}
+
+/* видео проявляется поверх фото, только когда реально пошло воспроизведение */
+.hero__video {
+  opacity: 0;
+  transition: opacity 1.4s var(--ease);
+}
+
+html.is-ready .hero__video.is-playing {
+  opacity: 1;
 }
 
 html.is-ready .hero__photo {
@@ -564,7 +579,7 @@ html.is-ready .hero__photo {
 
 /* Широкий экран: фото целиком по центру, края растворяются в чёрном */
 @media (min-width: 700px) and (min-aspect-ratio: 4/5) {
-  .hero__photo {
+  .hero__frame {
     position: absolute;
     top: 0;
     left: 0;

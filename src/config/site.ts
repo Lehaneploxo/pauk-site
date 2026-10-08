@@ -13,6 +13,8 @@ export const site = {
   brandLine: 'Personal brand',
   /** Фото первого экрана: public/hero.webp (вертикальное, 1080×1920 или похожее) */
   heroPhoto: { src: `${import.meta.env.BASE_URL}hero.webp`, width: 941, height: 1672 },
+  /** Видео первого экрана поверх фото (без звука, 720×1280); играет, только если сеть и устройство тянут */
+  heroVideo: `${import.meta.env.BASE_URL}hero.mp4`,
   links: {
     telegram: 'https://t.me/paukkh',
     instagram: 'https://www.instagram.com/paukkh?stkn=Zm5seWd5MmdtanZs',

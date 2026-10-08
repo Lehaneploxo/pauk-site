@@ -12,7 +12,14 @@ export const site = {
   /** Подпись под именем — всегда по-английски, на всех языках */
   brandLine: 'Personal brand',
   /** Фото первого экрана: public/hero.webp (вертикальное, 1080×1920 или похожее) */
-  heroPhoto: { src: `${import.meta.env.BASE_URL}hero.webp`, width: 941, height: 1672 },
+  heroPhoto: {
+    src: `${import.meta.env.BASE_URL}hero.webp`,
+    /** уменьшенная копия для небольших экранов */
+    srcSet: `${import.meta.env.BASE_URL}hero-640.webp 640w, ${import.meta.env.BASE_URL}hero.webp 941w`,
+    sizes: '(min-width: 700px) and (min-aspect-ratio: 4/5) 57vh, 100vw',
+    width: 941,
+    height: 1672,
+  },
   /** Видео первого экрана поверх фото (без звука, 720×1280); играет, только если сеть и устройство тянут */
   heroVideo: `${import.meta.env.BASE_URL}hero.mp4`,
   links: {

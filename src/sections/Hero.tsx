@@ -15,6 +15,8 @@ export function Hero() {
         <img
           className="hero__photo hero__frame"
           src={site.heroPhoto.src}
+          srcSet={site.heroPhoto.srcSet}
+          sizes={site.heroPhoto.sizes}
           width={site.heroPhoto.width}
           height={site.heroPhoto.height}
           alt={t.hero.photoAlt}

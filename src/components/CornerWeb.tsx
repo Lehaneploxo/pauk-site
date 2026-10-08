@@ -88,39 +88,36 @@ function buildWeb(seed: number) {
   return { spokePaths, ringPaths, anchorPaths, dew };
 }
 
-export function CornerWeb({ corner, seed = 7, className = '' }: { corner: Corner; seed?: number; className?: string }) {
-  const web = useMemo(() => buildWeb(seed), [seed]);
+/** Цвет нитей (в <img> currentColor не работает) */
+const WEB_COLOR = '#c9c9d0';
 
-  return (
-    <svg className={`corner-web corner-web--${corner} ${className}`} viewBox="0 0 400 400" aria-hidden="true" focusable="false">
-      <g fill="none" stroke="currentColor" strokeLinecap="round">
-        {web.anchorPaths.map((d, i) => (
-          <path key={`a${i}`} d={d} strokeWidth={0.7} opacity={0.55} />
-        ))}
-        {web.spokePaths.map((d, i) => (
-          <path key={`s${i}`} d={d} strokeWidth={0.8} opacity={0.8} />
-        ))}
-        {web.ringPaths.map((d, i) => (
-          <path key={`r${i}`} d={d} strokeWidth={0.6} opacity={0.75 - i * 0.025} />
-        ))}
-      </g>
-      <g fill="currentColor">
-        {web.dew.map((p, i) => (
-          <circle key={i} cx={f(p.x)} cy={f(p.y)} r={p.r.toFixed(2)} className="dew" />
-        ))}
-      </g>
-    </svg>
-  );
+/** Паутина как SVG-строка: в одном <img> вместо сотен DOM-узлов, и ноль байт загрузки. */
+function webToDataUrl(seed: number) {
+  const web = buildWeb(seed);
+  const path = (d: string, w: number, o: number) => `<path d="${d}" stroke-width="${w}" opacity="${o.toFixed(3)}"/>`;
+  const svg =
+    `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">` +
+    `<g fill="none" stroke="${WEB_COLOR}" stroke-linecap="round">` +
+    web.anchorPaths.map((d) => path(d, 0.7, 0.55)).join('') +
+    web.spokePaths.map((d) => path(d, 0.8, 0.8)).join('') +
+    web.ringPaths.map((d, i) => path(d, 0.6, 0.75 - i * 0.025)).join('') +
+    `</g><g fill="${WEB_COLOR}" opacity="0.9">` +
+    web.dew.map((p) => `<circle cx="${f(p.x)}" cy="${f(p.y)}" r="${p.r.toFixed(2)}"/>`).join('') +
+    `</g></svg>`;
+  return `data:image/svg+xml;charset=utf-8,${encodeURIComponent(svg)}`;
 }
 
-/** Паутина во всех четырёх углах контейнера */
-export function CornerWebs({ seeds = [3, 11, 23, 42], className = '' }: { seeds?: number[]; className?: string }) {
-  const corners: Corner[] = ['tl', 'tr', 'bl', 'br'];
+/** Угловая паутина. Рисуется для левого верхнего угла, остальные углы — зеркалом в CSS. */
+export function CornerWeb({ corner, seed = 7, className = '' }: { corner: Corner; seed?: number; className?: string }) {
+  const src = useMemo(() => webToDataUrl(seed), [seed]);
   return (
-    <div className={`corner-webs ${className}`} aria-hidden="true">
-      {corners.map((c, i) => (
-        <CornerWeb key={c} corner={c} seed={seeds[i]} />
-      ))}
-    </div>
+    <img
+      className={`corner-web corner-web--${corner} ${className}`}
+      src={src}
+      alt=""
+      aria-hidden="true"
+      width={400}
+      height={400}
+    />
   );
 }

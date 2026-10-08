@@ -11,7 +11,21 @@ npm run build    # сборка в dist/
 npm run preview  # просмотр собранной версии
 ```
 
-Папку `dist/` можно залить на любой статический хостинг (Netlify, Vercel, GitHub Pages, Cloudflare Pages).
+## Перенос на другой хостинг
+
+Сайт статический: после `npm run build` всё лежит в папке `dist/`. Пути относительные, поэтому сайт работает
+и в корне домена, и в подпапке (как на GitHub Pages).
+
+1. В файле `.env` поменяй `VITE_SITE_URL` на новый адрес (со слешем в конце) — он нужен для превью ссылки
+   в Telegram/Instagram (og:image) и canonical.
+2. Настройки на хостинге (Netlify / Vercel / Cloudflare Pages — везде одинаково):
+   - Build command: `npm run build`
+   - Output / publish directory: `dist`
+   - Node.js 18+
+3. Или без сборки на хостинге: `npm run build` локально и перетащить папку `dist/` в Netlify Drop
+   (app.netlify.com/drop) или загрузить её в любой хостинг статических файлов.
+
+Сейчас сайт выложен на GitHub Pages: ветка `gh-pages` = содержимое `dist/`.
 
 ## Что где менять
 
@@ -21,7 +35,9 @@ npm run preview  # просмотр собранной версии
 | Порядок карточек соцсетей | `socialOrder` в `src/config/site.ts` |
 | Все тексты на трёх языках, title/description | `src/i18n/translations.ts` |
 | Цвета, шрифты, радиусы | `src/styles/theme.css` |
-| Фото первого экрана | `public/hero.webp` (вертикальное ~1080×1920, WebP/JPG до ~500 КБ); размеры — `heroPhoto` в `src/config/site.ts` |
+| Фото первого экрана | `public/hero.webp` + уменьшенная `public/hero-640.webp` (вертикальное ~1080×1920, WebP до ~500 КБ); размеры — `heroPhoto` в `src/config/site.ts` |
+| Видео первого экрана | `public/hero.mp4` (без звука, вертикальное, до ~2 МБ). Играет поверх фото, только если сеть и устройство тянут — логика в `src/hooks/useHeroVideo.ts` |
+| Адрес сайта (для превью ссылок) | `VITE_SITE_URL` в `.env` |
 | Паук (логотип, загрузка, favicon) | форма в `src/components/spiderShape.ts`, затем `node tools/build-spider.mjs` |
 | Favicon / OG-картинка | `public/favicon.svg`, `public/og-image.png`, `public/apple-touch-icon.png` |
 
@@ -32,9 +48,9 @@ npm run preview  # просмотр собранной версии
 ```
 src/
   components/   Loader, LanguageSwitcher, SpiderMark, CornerWeb, Smoke, иконки
-  sections/     Header, Hero, About, SocialLinks, Support, Footer
+  sections/     Header, Hero, SocialLinks, Support, Footer
   i18n/         переводы + LanguageContext
-  hooks/        появление при скролле, активный пункт меню
+  hooks/        видео первого экрана, появление при скролле, активный пункт меню
   config/       site.ts — имя и ссылки
   styles/       theme.css (токены), global.css
 ```

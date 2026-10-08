@@ -36,7 +36,7 @@ function makeNoise(seed: number) {
     let sum = 0;
     let amp = 0.5;
     let freq = 1;
-    for (let o = 0; o < 5; o++) {
+    for (let o = 0; o < 4; o++) {
       sum += amp * noise(x * freq, y * freq);
       freq *= 2.03;
       amp *= 0.5;
@@ -51,63 +51,72 @@ const smooth = (e0: number, e1: number, x: number) => {
 };
 
 interface SmokeProps {
-  seed?: number;
-  /** общая плотность дыма */
+  /** общая плотность дыма (через opacity) */
   intensity?: number;
   className?: string;
 }
 
+const SEED = 5;
+const W = 120;
+let cache: ImageData | null = null;
+
+/** Считаем дым один раз на всю страницу; центр экрана (где дыма нет) пропускаем. */
+function renderSmoke(): ImageData {
+  if (cache) return cache;
+  const aspect = Math.min(2.4, Math.max(0.45, window.innerHeight / window.innerWidth));
+  const H = Math.round(W * aspect);
+  const img = new ImageData(W, H);
+  const fbm = makeNoise(SEED);
+  const warp = makeNoise(SEED + 99);
+  const scale = 3.2 / W;
+
+  for (let y = 0; y < H; y++) {
+    const v = y / H;
+    for (let x = 0; x < W; x++) {
+      const u = x / W;
+      const edge = Math.max(
+        smooth(0.42, 0.0, u),
+        smooth(0.58, 1.0, u),
+        smooth(0.55, 1.0, v) * 0.95,
+        smooth(0.25, 0.0, v) * 0.35,
+      );
+      if (edge < 0.01) continue;
+      const px = x * scale;
+      const py = y * scale;
+      // искажение координат даёт «клубы» и завитки
+      const w = warp(px * 0.8, py * 0.8);
+      const n = fbm(px * 1.4 + w * 2.2, py * 1.1 + w * 1.6);
+      const a = Math.pow(smooth(0.42, 0.85, n), 1.4) * edge * 0.6;
+      const i = (y * W + x) * 4;
+      img.data[i] = 205;
+      img.data[i + 1] = 205;
+      img.data[i + 2] = 212;
+      img.data[i + 3] = Math.min(255, a * 255);
+    }
+  }
+  cache = img;
+  return img;
+}
+
 /**
  * Дым по краям экрана (слева, справа, снизу), центр остаётся тёмным.
- * Считается один раз; анимация — только медленный transform обёртки (дёшево для GPU).
+ * Анимация — только медленный transform обёртки (дёшево для GPU).
  */
-export function Smoke({ seed = 5, intensity = 1, className = '' }: SmokeProps) {
+export function Smoke({ intensity = 1, className = '' }: SmokeProps) {
   const ref = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
     const canvas = ref.current;
-    if (!canvas) return;
-    const W = 180;
-    const aspect = Math.min(2.4, Math.max(0.45, window.innerHeight / window.innerWidth));
-    const H = Math.round(W * aspect);
-    canvas.width = W;
-    canvas.height = H;
-    const ctx = canvas.getContext('2d');
-    if (!ctx) return;
-
-    const fbm = makeNoise(seed);
-    const warp = makeNoise(seed + 99);
-    const img = ctx.createImageData(W, H);
-    const scale = 3.2 / W;
-
-    for (let y = 0; y < H; y++) {
-      for (let x = 0; x < W; x++) {
-        const u = x / W;
-        const v = y / H;
-        const px = x * scale;
-        const py = y * scale;
-        // искажение координат даёт «клубы» и завитки
-        const w = warp(px * 0.8, py * 0.8);
-        const n = fbm(px * 1.4 + w * 2.2, py * 1.1 + w * 1.6);
-        const edge = Math.max(
-          smooth(0.42, 0.0, u),
-          smooth(0.58, 1.0, u),
-          smooth(0.55, 1.0, v) * 0.95,
-          smooth(0.25, 0.0, v) * 0.35,
-        );
-        const a = Math.pow(smooth(0.42, 0.85, n), 1.4) * edge * 0.6 * intensity;
-        const i = (y * W + x) * 4;
-        img.data[i] = 205;
-        img.data[i + 1] = 205;
-        img.data[i + 2] = 212;
-        img.data[i + 3] = Math.min(255, a * 255);
-      }
-    }
+    const ctx = canvas?.getContext('2d');
+    if (!canvas || !ctx) return;
+    const img = renderSmoke();
+    canvas.width = img.width;
+    canvas.height = img.height;
     ctx.putImageData(img, 0, 0);
-  }, [seed, intensity]);
+  }, []);
 
   return (
-    <div className={`smoke ${className}`} aria-hidden="true">
+    <div className={`smoke ${className}`} style={{ opacity: intensity }} aria-hidden="true">
       <canvas ref={ref} className="smoke__canvas" />
     </div>
   );

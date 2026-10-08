@@ -136,13 +136,6 @@ ul {
 }
 
 /* ---------- Паутина в углах ---------- */
-.corner-webs {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  overflow: hidden;
-}
-
 .corner-web {
   position: absolute;
   width: clamp(190px, 58vw, 460px);
@@ -175,10 +168,6 @@ ul {
   bottom: 0;
   right: 0;
   transform: scale(-1, -1);
-}
-
-.corner-web .dew {
-  opacity: 0.9;
 }
 
 /* ---------- Экран загрузки ---------- */
@@ -952,11 +941,6 @@ html.is-ready .load-in {
   inset: 0;
   background: radial-gradient(70% 90% at 50% 120%, rgba(255, 255, 255, 0.08), transparent 70%);
   pointer-events: none;
-}
-
-.support .corner-web {
-  width: clamp(160px, 46vw, 340px);
-  opacity: 0.35;
 }
 
 .support__content {

@@ -35,7 +35,7 @@ export function Loader() {
 
   return (
     <div className={`loader${phase === 'hide' ? ' is-hidden' : ''}`} aria-hidden="true">
-      <Smoke seed={17} intensity={0.9} className="loader__smoke" />
+      <Smoke intensity={0.9} className="loader__smoke" />
       <CornerWeb corner="tl" seed={5} className="loader__web" />
       <CornerWeb corner="br" seed={29} className="loader__web" />
       <div className="loader__center">

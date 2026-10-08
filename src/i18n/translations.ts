@@ -12,23 +12,17 @@ const uk = {
     description:
       'ПАУК — стример і блогер. Стріми, відео та контент. Telegram, Instagram, TikTok і підтримка автора.',
   },
-  nav: { home: 'Головна', about: 'Про мене', social: 'Соцмережі', support: 'Підтримати' },
+  nav: { home: 'Головна', social: 'Соцмережі', support: 'Підтримати' },
   hero: {
     name: 'ПАУК',
     tagline: 'Стримлю. Знімаю. Не зупиняюсь.',
-    ctaPrimary: 'Написати в Telegram',
-    ctaSecondary: 'Підтримати',
+    ctaPrimary: 'Телеграм канал',
+    ctaSecondary: 'Підтримати через Mono',
     scroll: 'Гортай',
     photoAlt: 'Паук — стример і блогер',
   },
-  about: {
-    kicker: '01 — Про мене',
-    title: 'Хто такий Паук',
-    lead:
-      'Я — Паук, стример і автор контенту. Виходжу в ефір, знімаю відео та збираю навколо себе людей, яким цікаве те саме, що й мені. Тут усе в одному місці: де дивитися, куди писати і як підтримати.',
-  },
   social: {
-    kicker: '02 — Соцмережі',
+    kicker: '01 — Соцмережі',
     title: 'Знайти мене',
     subtitle: 'Стріми, відео та новини — обирай, де зручніше.',
     cards: {
@@ -39,7 +33,7 @@ const uk = {
     },
   },
   support: {
-    kicker: '03 — Підтримка',
+    kicker: '02 — Підтримка',
     title: 'Подобаються стріми?',
     text: 'Якщо тобі заходить мій контент — можеш підтримати канал. Кожен донат допомагає стримити частіше та якісніше. Без тиску, будь-яка сума.',
     button: 'Підтримати',
@@ -69,23 +63,17 @@ const ru: Dict = {
     description:
       'ПАУК — стример и блогер. Стримы, видео и контент. Telegram, Instagram, TikTok и поддержка автора.',
   },
-  nav: { home: 'Главная', about: 'Обо мне', social: 'Соцсети', support: 'Поддержать' },
+  nav: { home: 'Главная', social: 'Соцсети', support: 'Поддержать' },
   hero: {
     name: 'ПАУК',
     tagline: 'Стримлю. Снимаю. Не останавливаюсь.',
-    ctaPrimary: 'Написать в Telegram',
-    ctaSecondary: 'Поддержать',
+    ctaPrimary: 'Телеграм канал',
+    ctaSecondary: 'Поддержать через Mono',
     scroll: 'Листай',
     photoAlt: 'Паук — стример и блогер',
   },
-  about: {
-    kicker: '01 — Обо мне',
-    title: 'Кто такой Паук',
-    lead:
-      'Я — Паук, стример и автор контента. Выхожу в эфир, снимаю видео и собираю вокруг себя людей, которым интересно то же, что и мне. Здесь всё в одном месте: где смотреть, куда писать и как поддержать.',
-  },
   social: {
-    kicker: '02 — Соцсети',
+    kicker: '01 — Соцсети',
     title: 'Найти меня',
     subtitle: 'Стримы, видео и новости — выбирай, где удобнее.',
     cards: {
@@ -96,7 +84,7 @@ const ru: Dict = {
     },
   },
   support: {
-    kicker: '03 — Поддержка',
+    kicker: '02 — Поддержка',
     title: 'Нравятся стримы?',
     text: 'Если тебе заходит мой контент — можешь поддержать канал. Каждый донат помогает стримить чаще и качественнее. Без давления, любая сумма.',
     button: 'Поддержать',
@@ -124,23 +112,17 @@ const en: Dict = {
     description:
       'PAUK is a streamer and content creator. Streams, videos and more. Telegram, Instagram, TikTok and ways to support.',
   },
-  nav: { home: 'Home', about: 'About', social: 'Socials', support: 'Support' },
+  nav: { home: 'Home', social: 'Socials', support: 'Support' },
   hero: {
     name: 'PAUK',
     tagline: 'Stream. Create. Never stop.',
-    ctaPrimary: 'Message on Telegram',
-    ctaSecondary: 'Support',
+    ctaPrimary: 'Telegram channel',
+    ctaSecondary: 'Support via Mono',
     scroll: 'Scroll',
     photoAlt: 'PAUK — streamer and content creator',
   },
-  about: {
-    kicker: '01 — About',
-    title: 'Who is PAUK',
-    lead:
-      'I’m PAUK (“spider” in Ukrainian) — a streamer and content creator. I go live, make videos and bring together people who are into the same things I am. Everything is in one place here: where to watch, where to message me and how to support.',
-  },
   social: {
-    kicker: '02 — Socials',
+    kicker: '01 — Socials',
     title: 'Find me',
     subtitle: 'Streams, videos and news — pick whatever suits you.',
     cards: {
@@ -151,7 +133,7 @@ const en: Dict = {
     },
   },
   support: {
-    kicker: '03 — Support',
+    kicker: '02 — Support',
     title: 'Enjoy the streams?',
     text: 'If you like my content, you can support the channel. Every donation helps me stream more often and better. No pressure — any amount helps.',
     button: 'Support',

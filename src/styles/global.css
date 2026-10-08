@@ -773,29 +773,6 @@ html.is-ready .load-in {
   transform: none;
 }
 
-/* ---------- Обо мне ---------- */
-.about {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
-
-.about__lead {
-  max-width: 680px;
-  font-size: clamp(17px, 4.2vw, 21px);
-  line-height: 1.6;
-  color: var(--text-muted);
-}
-
-.about__handle {
-  margin-top: 22px;
-  font-family: var(--font-display);
-  font-size: 13px;
-  letter-spacing: 0.3em;
-  color: var(--text-dim);
-}
-
 /* ---------- Соцсети (как на lehaneploxo: иконка, имя + ник, стрелка) ---------- */
 .socials__grid {
   display: grid;

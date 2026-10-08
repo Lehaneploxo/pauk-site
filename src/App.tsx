@@ -1,7 +1,6 @@
 import { Loader } from './components/Loader';
 import { Smoke } from './components/Smoke';
 import { useReveal } from './hooks/useReveal';
-import { About } from './sections/About';
 import { Footer } from './sections/Footer';
 import { Header } from './sections/Header';
 import { Hero } from './sections/Hero';
@@ -20,7 +19,6 @@ export default function App() {
       <Header />
       <main>
         <Hero />
-        <About />
         <SocialLinks />
         <Support />
       </main>

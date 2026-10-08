@@ -43,7 +43,7 @@ export function Hero() {
         </div>
       </div>
 
-      <a className="hero__scroll" href="#about">
+      <a className="hero__scroll" href="#social">
         {t.hero.scroll}
         <ArrowDown size={14} aria-hidden="true" />
       </a>

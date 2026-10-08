@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="uk" class="is-loading">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>PAUK — офіційний сайт стримера</title>
+    <meta
+      name="description"
+      content="ПАУК — стример і блогер. Стріми, відео та контент. Telegram, Instagram, TikTok і підтримка автора."
+    />
+    <link rel="canonical" href="https://paukkh.com/" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="color-scheme" content="dark" />
+
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+    <link rel="preload" href="./spider.svg" as="image" type="image/svg+xml" />
+    <link rel="preload" as="image" type="image/webp" fetchpriority="high" imagesrcset="./hero-640.webp 640w, ./hero.webp 941w" imagesizes="(min-width: 700px) and (min-aspect-ratio: 4/5) 57vh, 100vw" />
+    <link rel="apple-touch-icon" href="./apple-touch-icon.png" />
+
+    <!-- Open Graph / соцсети -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="PAUK" />
+    <meta property="og:title" content="PAUK — офіційний сайт стримера" />
+    <meta
+      property="og:description"
+      content="ПАУК — стример і блогер. Стріми, відео та контент. Telegram, Instagram, TikTok і підтримка автора."
+    />
+    <meta property="og:locale" content="uk_UA" />
+    <meta property="og:locale:alternate" content="ru_RU" />
+    <meta property="og:locale:alternate" content="en_US" />
+    <meta property="og:url" content="https://paukkh.com/" />
+    <meta property="og:image" content="https://paukkh.com/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="PAUK — офіційний сайт стримера" />
+    <meta
+      name="twitter:description"
+      content="ПАУК — стример і блогер. Стріми, відео та контент. Telegram, Instagram, TikTok і підтримка автора."
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400..800&family=Montserrat:wght@400..700&display=swap"
+      rel="stylesheet"
+    />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "jobTitle": "Streamer, content creator",
+        "name": "PAUK",
+        "alternateName": ["ПАУК", "paukkh"],
+        "sameAs": [
+          "https://t.me/paukkh",
+          "https://www.instagram.com/paukkh",
+          "https://www.tiktok.com/@paukkh"
+        ]
+      }
+    </script>
+    <!-- Критичные стили прелоадера: экран загрузки виден сразу, ещё до JS -->
+    <style>
+      html, body { margin: 0; background: #000; }
+      .loader { position: fixed; inset: 0; z-index: 100; background: #000; display: flex; align-items: center; justify-content: center; overflow: hidden; color: #f2f2f4; }
+      .loader__center { display: flex; flex-direction: column; align-items: center; }
+      .loader__title { display: flex; align-items: center; gap: .45em; margin: 0; font: 600 clamp(30px, 9vw, 64px)/1 Montserrat, system-ui, sans-serif; letter-spacing: .14em; }
+      .loader__spider { width: .95em; height: .95em; }
+      .loader__brand { position: absolute; left: 0; right: 0; bottom: 22%; margin: 0; text-align: center; font: 500 12px/1 Montserrat, system-ui, sans-serif; letter-spacing: .5em; text-transform: uppercase; color: #8d8d95; }
+    </style>
+    <script type="module" crossorigin src="./assets/index-WwByUCH_.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-CwC8wkNY.css">
+  </head>
+  <body>
+    <div id="root">
+      <div class="loader" aria-hidden="true">
+        <div class="loader__center"><p class="loader__title"><img class="loader__spider" src="./spider.svg" alt="" width="40" height="40" /><span id="pre-name">ПАУК</span><img class="loader__spider" src="./spider.svg" alt="" width="40" height="40" /></p></div>
+        <p class="loader__brand" id="pre-brand">Personal brand</p>
+      </div>
+    </div>
+    <script>
+      // Прелоадер сразу на выбранном языке
+      try {
+        var l = new URLSearchParams(location.search).get('lang') || localStorage.getItem('pauk-lang');
+        if (l === 'en') document.getElementById('pre-name').textContent = 'PAUK';
+      } catch (e) {}
+    </script>
+    <noscript><style>.loader { display: none !important; }</style></noscript>
+    <noscript>PAUK — Telegram: https://t.me/paukkh · Instagram: https://www.instagram.com/paukkh</noscript>
+  </body>
+</html>

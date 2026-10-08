@@ -9,7 +9,10 @@ npm install
 npm run dev      # разработка
 npm run build    # сборка в dist/
 npm run preview  # просмотр собранной версии
+npm run deploy   # собрать и выложить на https://paukkh.com (GitHub Pages, ветка gh-pages)
 ```
+
+Полное описание проекта: `ПАСПОРТ ПРОЕКТА.md`. Для ИИ-помощника: `CLAUDE.md`.
 
 ## Перенос на другой хостинг
 
@@ -25,7 +28,7 @@ npm run preview  # просмотр собранной версии
 3. Или без сборки на хостинге: `npm run build` локально и перетащить папку `dist/` в Netlify Drop
    (app.netlify.com/drop) или загрузить её в любой хостинг статических файлов.
 
-Сейчас сайт выложен на GitHub Pages: ветка `gh-pages` = содержимое `dist/`.
+Сейчас сайт выложен на GitHub Pages с доменом **paukkh.com**: ветка `gh-pages` = содержимое `dist/`, выкладка — `npm run deploy`.
 
 ## Что где менять
 

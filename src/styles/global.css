@@ -149,6 +149,9 @@ ul {
   height: auto;
   color: var(--web);
   opacity: 0.5;
+  /* нити плавно растворяются, без обрезки по краю квадрата */
+  -webkit-mask-image: radial-gradient(circle at 0 0, #000 40%, transparent 70%);
+  mask-image: radial-gradient(circle at 0 0, #000 40%, transparent 70%);
 }
 
 .corner-web--tl {

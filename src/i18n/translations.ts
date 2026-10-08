@@ -19,7 +19,6 @@ const uk = {
     ctaPrimary: 'Написати в Telegram',
     ctaSecondary: 'Підтримати',
     scroll: 'Гортай',
-    avatarAlt: 'Фото Паука',
     photoAlt: 'Паук — стример і блогер',
   },
   about: {
@@ -77,7 +76,6 @@ const ru: Dict = {
     ctaPrimary: 'Написать в Telegram',
     ctaSecondary: 'Поддержать',
     scroll: 'Листай',
-    avatarAlt: 'Фото Паука',
     photoAlt: 'Паук — стример и блогер',
   },
   about: {
@@ -133,7 +131,6 @@ const en: Dict = {
     ctaPrimary: 'Message on Telegram',
     ctaSecondary: 'Support',
     scroll: 'Scroll',
-    avatarAlt: 'Photo of PAUK',
     photoAlt: 'PAUK — streamer and content creator',
   },
   about: {
